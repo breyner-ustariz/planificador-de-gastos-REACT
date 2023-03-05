@@ -1,3 +1,12 @@
+import {
+   LeadingActions,
+   SwipeableList,
+   SwipeableListItem,
+   SwipeAction,
+   TrailingActions
+
+} from 'react-swipeable-list'
+import "react-swipeable-list/dist/styles.css"
 import{formatearFecha} from '../helpers'
 // {iconos}
 import iconoAhorro from '../img/icono_ahorro.svg'
@@ -18,7 +27,27 @@ const diccionarioIconos = {
    suscripciones :iconoSuscripciones 
 }
 const Gasto = ({gasto}) => {
+
+   const leadingActions = ()=>(
+      <LeadingActions>
+         <SwipeAction onClick={()=> console.log('editar..')}>
+            Editar
+         </SwipeAction>
+      </LeadingActions>
+   )
+   const trailingActions = ()=>(
+      <TrailingActions>
+         <SwipeAction onClick={()=>console.log('Eliminar')}>
+            Eliminar
+         </SwipeAction>
+      </TrailingActions>
+   )
   return (
+   <SwipeableList>
+      <SwipeableListItem 
+      leadingActions={leadingActions()}
+      trailingActions={trailingActions()}
+      >
     <div className="gasto sombra">
       <div className="contenido-gasto">
          <img src={diccionarioIconos[gasto.categoria]} alt="icono gasto"
@@ -35,6 +64,8 @@ const Gasto = ({gasto}) => {
       </div>
             <p className="cantidad-gasto">$ {gasto.cantidad}</p>
     </div>
+    </SwipeableListItem>
+    </SwipeableList>
   )
 }
 

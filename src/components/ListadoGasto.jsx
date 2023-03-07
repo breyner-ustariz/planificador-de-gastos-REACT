@@ -8,7 +8,7 @@ const ListadoGasto = ({
    gastosFiltrados}) => {
   return (
     <div className='listado-gastos contenedor'>
-      <h2>{gastos.length ? 'Gastos': 'No a agregado ningun gasto'}</h2>
+      <h2>{gastos.length ? 'Gastos': ''}</h2>
 
       {filtro ? (
          <>

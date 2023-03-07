@@ -21,9 +21,9 @@ const ControlPresupuesto = ({gastos, presupuesto}) => {
 
    }, [gastos]);
    const formatearCantidad = (cantidad)=> {
-      return cantidad.toLocaleString('en-US', {
+      return cantidad.toLocaleString('es-ES', {
          style: 'currency',
-         currency: 'USD'
+         currency: 'COP'
       })
    }
   return (
@@ -31,6 +31,7 @@ const ControlPresupuesto = ({gastos, presupuesto}) => {
       <div>
         <CircularProgressbar
         styles={buildStyles({
+         strokeLinecap: 'butt',
          pathColor: "#3b82f6",
          trailColor: "#f5f5f5"
         })}
